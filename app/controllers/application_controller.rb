@@ -1,25 +1,34 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery
-
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  rescue_from CanCan::AccessDenied do |_exception|
-    if user_signed_in?
-      flash[:error] = "Not authorized to view this page"
-      session[:user_return_to] = nil
-      redirect_to root_url
-
-    else
-      flash[:info] = "You must first login to view this page"
-      session[:user_return_to] = request.url
-      redirect_to new_user_session_path
-    end
-  end
+  include Knock::Authenticable
 
   protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  def current_user
+    sub = auth_token.payload["sub"]
+    email = auth_token.payload["email"]
+
+    current_user = nil
+
+    if sub
+      begin
+        current_user = User.find_by(email: email)
+        # current_user = User.find_or_create_by!(auth0_id: sub)
+      rescue ActiveRecord::RecordNotUnique, ActiveRecord::RecordInvalid
+        retry
+      end
+
+      begin
+        current_user.update!(email: email) if email.present? && email != current_user.email
+      rescue ActiveRecord::StaleObjectError
+        current_user.reload
+        retry
+      end
+    end
+
+    current_user
+  end
+
+  def auth_token
+    Knock::AuthToken.new(token: token)
   end
 end

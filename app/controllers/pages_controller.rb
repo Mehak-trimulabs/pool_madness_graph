@@ -1,11 +1,4 @@
 class PagesController < ApplicationController
-  protect_from_forgery except: :graphql
-  before_action :authenticate_user!
-
-  def home
-    respond_to { |f| f.html { render layout: "pages" } }
-  end
-
   def graphql
     query_string = params[:query]
     query_variables = params[:variables].to_unsafe_hash

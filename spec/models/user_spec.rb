@@ -10,8 +10,6 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-  it { is_expected.to validate_presence_of(:password) }
-  it { is_expected.to validate_length_of(:password).is_at_least(8) }
 
   it { is_expected.to have_many(:brackets) }
   it { is_expected.to have_many(:brackets_to_pay) }
@@ -49,15 +47,6 @@ RSpec.describe User, type: :model do
       it "reuses the same stripe customer" do
         expect(User.find_by(email: subject.email).stripe_customer.id).to eq(stripe_customer.id)
       end
-    end
-  end
-
-  describe "#accept_invitation!" do
-    let(:queue) { ActiveJob::Base.queue_adapter.enqueued_jobs }
-
-    it "sends a welcome message" do
-      expect { subject.accept_invitation! }.to change(queue, :size).by(1)
-      expect(queue.last[:args].second).to eq("welcome_message")
     end
   end
 

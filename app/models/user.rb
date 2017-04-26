@@ -1,19 +1,13 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :invitable
-
   has_many :brackets, dependent: :destroy
   has_many :brackets_to_pay, class_name: "Bracket", foreign_key: "payment_collector_id"
   has_many :pool_users, dependent: :destroy
   has_many :pools, through: :pool_users
 
-  validates :email, format: { with: EmailValidator.regexp }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: EmailValidator.regexp }
   validates :name, presence: true
 
   enum role: %i[regular admin]
-
-  after_create do |user|
-    user.welcome_message if user.invitation_token.blank?
-  end
 
   def stripe_customer
     if stripe_customer_id.present?
@@ -24,15 +18,5 @@ class User < ApplicationRecord
       save!
       customer
     end
-  end
-
-  # devise_invitable accept_invitation! method overriden
-  def accept_invitation!
-    welcome_message
-    super
-  end
-
-  def welcome_message
-    UserMailer.welcome_message(self).deliver_later
   end
 end
