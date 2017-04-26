@@ -11,8 +11,15 @@ class ApplicationController < ActionController::Base
 
     if sub
       begin
-        current_user = User.find_by(email: email)
-        # current_user = User.find_or_create_by!(auth0_id: sub)
+        current_user = User.find_by(auth0_id: sub)
+
+        unless current_user
+          # legacy user?
+          current_user = User.find_by(email: email, auth0_id: nil)
+          current_user.try(:update!, auth0_id: sub)
+        end
+
+        current_user ||= User.create!(auth0_id: sub, email: email)
       rescue ActiveRecord::RecordNotUnique, ActiveRecord::RecordInvalid
         retry
       end

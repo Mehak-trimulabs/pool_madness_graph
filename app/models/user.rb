@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :pools, through: :pool_users
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: EmailValidator.regexp }
-  validates :name, presence: true
 
   enum role: %i[regular admin]
 

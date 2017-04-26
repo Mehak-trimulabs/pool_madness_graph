@@ -1,10 +1,10 @@
 DatabaseCleaner.clean_with :truncation
 
-admin = User.create_with(name: ENV['ADMIN_NAME'].dup, password: ENV['ADMIN_PASSWORD'].dup, password_confirmation: ENV['ADMIN_PASSWORD'].dup).find_or_create_by(email: ENV['ADMIN_EMAIL'].dup)
+admin = User.create_with(name: ENV['ADMIN_NAME'].dup).find_or_create_by(email: ENV['ADMIN_EMAIL'].dup)
 admin.admin!
 puts "admin user: #{admin.name}"
 
-user = User.create_with(name: 'Regular User', password: 'changeme', password_confirmation: 'changeme').find_or_create_by(email: 'user@pool-madness.com')
+user = User.create_with(name: 'Regular User').find_or_create_by(email: 'user@pool-madness.com')
 puts "regular user: #{user.name}"
 
 completed = FactoryGirl.create(:tournament, :completed, name: "Completed Tourney")
