@@ -8,6 +8,6 @@ FactoryGirl.define do
   end
 
   factory :admin_user, parent: :user, class: User do
-    after(:create, &:admin!)
+    admin true
   end
 end
