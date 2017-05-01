@@ -121,10 +121,8 @@ class Game < BinaryDecisionTree::Node
   def team_by_slot(in_slot)
     slot_number = in_slot.try(:value) || in_slot
 
-    teams_hash = Rails.cache.fetch("team_by_slot_teams_hash_" + tournament.id.to_s) do
-      tournament.teams.each_with_object({}) do |ele, acc|
-        acc[ele.starting_slot] = ele
-      end
+    teams_hash = tournament.teams.each_with_object({}) do |ele, acc|
+      acc[ele.starting_slot] = ele
     end
 
     teams_hash[slot_number]

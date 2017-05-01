@@ -349,9 +349,7 @@ RSpec.describe Game, type: :model do
       end
 
       context "the picked team is still playing" do
-        before do
-          expect(subject.team).to_not be_eliminated
-        end
+        before { expect(subject.team).to_not be_eliminated }
 
         it "is the points per round + the team seed" do
           BracketPoint::POINTS_PER_ROUND[1] + subject.team.seed
@@ -366,12 +364,12 @@ RSpec.describe Game, type: :model do
           bracket.update_choice!(slot, 1)
           bracket.update_choice!(next_game_slot, subject.next_slot - 1)
 
-          expect(bracket.tree.at(slot).team).to be_eliminated
-          expect(bracket.tree.at(next_game_slot).team).to eq(bracket.tree.at(slot).team)
+          expect(bracket.tree.at(slot).team.reload).to be_eliminated
+          expect(bracket.tree.at(next_game_slot).team.reload).to eq(bracket.tree.at(slot).team)
           expect(tournament.tree.at(next_game_slot).decision).to be_nil
         end
 
-        xit "is the actual points" do
+        it "is the actual points" do
           expect(bracket.tree.at(next_game_slot).possible_points).to be_zero
         end
       end

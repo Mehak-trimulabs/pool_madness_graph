@@ -38,6 +38,10 @@ group :production, :staging do
   gem "rails_12factor"
 end
 
+group :development do
+  gem "listen"
+end
+
 group :test do
   gem "fuubar"
   gem "shoulda-matchers"

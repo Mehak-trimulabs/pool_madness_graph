@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426222652) do
+ActiveRecord::Schema.define(version: 20170501151127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,32 +32,18 @@ ActiveRecord::Schema.define(version: 20170426222652) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "charge_id"
     t.integer "tie_breaker"
     t.integer "payment_collector_id"
-    t.string "stripe_charge_id"
     t.string "name", null: false
     t.integer "payment_state", default: 0
     t.integer "pool_id", null: false
     t.decimal "tree_decisions", precision: 20, default: "0", null: false
     t.decimal "tree_mask", precision: 20, default: "0", null: false
-    t.index ["charge_id"], name: "index_brackets_on_stripe_charge_id"
     t.index ["name"], name: "index_brackets_on_name"
     t.index ["payment_collector_id"], name: "index_brackets_on_payment_collector_id"
     t.index ["pool_id", "name"], name: "index_brackets_on_pool_id_and_name", unique: true
     t.index ["pool_id"], name: "index_brackets_on_pool_id"
     t.index ["user_id"], name: "index_brackets_on_user_id"
-  end
-
-  create_table "charges", force: :cascade do |t|
-    t.string "order_id"
-    t.datetime "completed_at"
-    t.integer "amount"
-    t.text "transaction_hash"
-    t.integer "bracket_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bracket_id"], name: "index_charges_on_bracket_id", unique: true
   end
 
   create_table "pool_users", force: :cascade do |t|

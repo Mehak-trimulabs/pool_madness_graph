@@ -3,7 +3,6 @@ class Bracket < ApplicationRecord
   belongs_to :user
   belongs_to :payment_collector, class_name: "User", optional: true
 
-  has_one :charge
   has_one :tournament, through: :pool
   has_one :bracket_point, dependent: :destroy
 

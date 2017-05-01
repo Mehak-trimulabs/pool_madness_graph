@@ -41,7 +41,11 @@ RSpec.describe Team, type: :model do
 
     context "won the first game" do
       subject { game.first_team }
-      before { tournament.update_game!(game.slot, 0) }
+
+      before do
+        tournament.update_game!(game.slot, 0)
+        subject.reload
+      end
 
       it "is true" do
         expect(subject).to be_still_playing
@@ -58,7 +62,10 @@ RSpec.describe Team, type: :model do
       end
 
       context "lost the next game" do
-        before { tournament.update_game!(game.parent.slot, 1) }
+        before do
+          tournament.update_game!(game.parent.slot, 1)
+          subject.reload
+        end
 
         it "is false" do
           expect(subject).to_not be_still_playing
@@ -68,7 +75,7 @@ RSpec.describe Team, type: :model do
 
       context "won the championship" do
         let(:tournament) { create(:tournament, :completed) }
-        subject { tournament.championship.team }
+        subject { tournament.championship.team.reload }
 
         it "is true" do
           expect(subject).to_not be_eliminated
@@ -79,7 +86,11 @@ RSpec.describe Team, type: :model do
 
     context "lost the first game" do
       subject { game.first_team }
-      before { tournament.update_game!(game.slot, 1) }
+
+      before do
+        tournament.update_game!(game.slot, 1)
+        subject.reload
+      end
 
       it "is false" do
         expect(subject).to_not be_still_playing

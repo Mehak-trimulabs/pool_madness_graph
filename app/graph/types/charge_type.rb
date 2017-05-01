@@ -3,9 +3,6 @@ module Types
     name "Charge"
     description "A stripe credit card charge"
 
-    interfaces [GraphQL::Relay::Node.interface]
-    global_id_field :id
-
     field :stripe_id, !types.ID, property: :id
     field :amount, !types.Int # in cents
     field :description, types.String
