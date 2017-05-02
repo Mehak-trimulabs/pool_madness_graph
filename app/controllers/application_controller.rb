@@ -35,6 +35,10 @@ class ApplicationController < ActionController::API
     current_user
   end
 
+  def current_ability
+    Ability.new(current_user)
+  end
+
   def auth_token
     Knock::AuthToken.new(token: token)
   end

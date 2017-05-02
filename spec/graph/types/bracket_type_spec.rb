@@ -4,20 +4,10 @@ RSpec.describe Types::BracketType do
   subject { Types::BracketType }
 
   context "fields" do
-    let(:fields) { %w[id model_id name owner pool editable tie_breaker status points possible_points best_possible_finish eliminated final_four game_decisions game_mask] }
+    let(:fields) { %w[id name owner pool editable tie_breaker status points possible_points best_possible_finish eliminated final_four game_decisions game_mask] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)
-    end
-
-    describe "model_id" do
-      subject { Types::BracketType.fields["model_id"] }
-
-      let!(:bracket) { create(:bracket) }
-
-      it "is the DB id of the object" do
-        expect(subject.resolve(bracket, nil, nil)).to eq(bracket.id)
-      end
     end
   end
 

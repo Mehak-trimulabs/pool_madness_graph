@@ -14,8 +14,8 @@ module Mutations
         user: user,
         name: inputs["name"],
         tie_breaker: inputs["tie_breaker"],
-        tree_decisions: bitstring_to_int(inputs["game_decisions"]),
-        tree_mask: bitstring_to_int(inputs["game_mask"])
+        tree_decisions: BitstringUtils.to_int(inputs["game_decisions"]),
+        tree_mask: BitstringUtils.to_int(inputs["game_mask"])
       }.compact
     )
 

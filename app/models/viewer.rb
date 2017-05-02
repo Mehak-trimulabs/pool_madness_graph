@@ -8,4 +8,8 @@ class Viewer
   def id
     Viewer::ID
   end
+
+  def graph_type
+    "Types::ViewerType".constantize
+  end
 end

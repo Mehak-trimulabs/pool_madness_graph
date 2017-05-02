@@ -5,7 +5,6 @@ module Types
     interfaces [GraphQL::Relay::Node.interface]
     global_id_field :id
 
-    field :model_id, !types.ID, property: :id
     field :name, !types.String
     field :owner, !UserType, property: :user
     field :editable, !types.Boolean do
@@ -28,11 +27,11 @@ module Types
     field :pool, !PoolType
 
     field :game_decisions, !types.String do
-      resolve ->(bracket, _args, _context) { Array.new(2**bracket.tournament.num_rounds) { |i| (bracket.tree_decisions & (1 << i)).zero? ? "0" : "1" }.join("") }
+      resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_decisions, 2**bracket.tournament.num_rounds) }
     end
 
     field :game_mask, !types.String do
-      resolve ->(bracket, _args, _context) { Array.new(2**bracket.tournament.num_rounds) { |i| (bracket.tree_mask & (1 << i)).zero? ? "0" : "1" }.join("") }
+      resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_mask, 2**bracket.tournament.num_rounds) }
     end
   end
 end

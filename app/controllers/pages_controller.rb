@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
   def graphql
     query_string = params[:query]
-    query_variables = params[:variables].to_unsafe_hash
 
     result = GraphqlSchema.execute(
       query_string,
-        variables: query_variables,
+        variables: graphql_variables,
         context: {
           current_user: current_user,
           current_ability: current_ability,
@@ -14,5 +13,19 @@ class PagesController < ApplicationController
     )
 
     render json: result
+  end
+
+  private
+
+  def graphql_variables
+    variables = params[:variables]
+    case variables
+    when nil, ""
+      {}
+    when String
+      JSON.parse(variables)
+    else
+      variables.to_unsafe_hash
+    end
   end
 end

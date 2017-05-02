@@ -5,7 +5,7 @@ module Mutations
 
     raise GraphQL::ExecutionError, "You must be signed in to update this information" if user.blank?
 
-    bracket = GraphqlSchema.object_from_id(inputs["bracket_id"], {})
+    bracket = Bracket.find(inputs["bracket_id"])
     pool = bracket.pool
 
     if ability.can?(:destroy, bracket)

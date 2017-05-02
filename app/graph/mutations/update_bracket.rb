@@ -5,12 +5,12 @@ module Mutations
 
     raise GraphQL::ExecutionError, "You must be signed in to update this information" if user.blank?
 
-    bracket = GraphqlSchema.object_from_id(inputs["bracket_id"], {})
+    bracket = Bracket.find(inputs["bracket_id"])
 
     raise GraphQL::ExecutionError, "You cannot update this bracket" unless ability.can?(:edit, bracket)
 
-    game_decisions = inputs["game_decisions"] ? bitstring_to_int(inputs["game_decisions"]) : bracket.game_decisions
-    game_mask = inputs["game_mask"] ? bitstring_to_int(inputs["game_mask"]) : bracket.game_mask
+    game_decisions = inputs["game_decisions"] ? BitstringUtils.to_int(inputs["game_decisions"]) : bracket.game_decisions
+    game_mask = inputs["game_mask"] ? BitstringUtils.to_int(inputs["game_mask"]) : bracket.game_mask
     bracket.update(
       {
         name: inputs["name"],

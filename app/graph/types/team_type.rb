@@ -5,7 +5,6 @@ module Types
     interfaces [GraphQL::Relay::Node.interface]
     global_id_field :id
 
-    field :model_id, !types.Int
     field :seed, !types.Int
     field :name, !types.String
     field :starting_slot, !types.Int

@@ -4,20 +4,10 @@ RSpec.describe Types::PoolType do
   subject { described_class }
 
   context "fields" do
-    let(:fields) { %w[id model_id tournament name invite_code entry_fee total_collected brackets possibilities admins display_best started bracket_count] }
+    let(:fields) { %w[id tournament name invite_code entry_fee total_collected brackets possibilities admins display_best started bracket_count] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)
-    end
-
-    describe "model_id" do
-      subject { described_class.fields["model_id"] }
-
-      let!(:pool) { create(:pool) }
-
-      it "is the DB id of the object" do
-        expect(subject.resolve(pool, nil, nil)).to eq(pool.id)
-      end
     end
 
     describe "admins" do
