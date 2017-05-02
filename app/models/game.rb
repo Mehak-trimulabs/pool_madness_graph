@@ -7,7 +7,7 @@ class Game < BinaryDecisionTree::Node
 
   def self.find(graph_id)
     type, tournament_id, slot = graph_id.split("~")
-    type.constantize.find(tournament_id.to_i).tree.at(slot.to_i)
+    type.constantize.find(tournament_id).tree.at(slot.to_i)
   end
 
   def id

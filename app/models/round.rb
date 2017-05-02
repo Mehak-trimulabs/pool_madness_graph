@@ -9,8 +9,8 @@ class Round
   validates :tournament, :number, presence: true
 
   def self.find(graph_id)
-    tournament_id, round_number = graph_id.split("~").map(&:to_i)
-    new(tournament: Tournament.find(tournament_id), number: round_number)
+    tournament_id, round_number = graph_id.split("~")
+    new(tournament: Tournament.find(tournament_id), number: round_number.to_i)
   end
 
   def id
