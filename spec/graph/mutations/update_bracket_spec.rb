@@ -6,7 +6,6 @@ RSpec.describe Mutations::UpdateBracket do
   let(:tournament) { create(:tournament, :not_started) }
   let(:pool) { create(:pool, tournament: tournament) }
   let(:bracket) { create(:bracket, pool: pool) }
-  let(:bracket_graph_id) { GraphqlSchema.id_from_object(bracket, nil, nil) }
   let(:user) { bracket.user }
 
   let(:graphql_args) { args.deep_stringify_keys }
@@ -21,11 +20,11 @@ RSpec.describe Mutations::UpdateBracket do
 
   let(:args) do
     {
-      bracket_id: bracket_graph_id,
+      bracketId: bracket.id,
       name: name,
-      tie_breaker: tie_breaker,
-      game_decisions: game_decisions,
-      game_mask: game_mask
+      tieBreaker: tie_breaker,
+      gameDecisions: game_decisions,
+      gameMask: game_mask
     }
   end
 

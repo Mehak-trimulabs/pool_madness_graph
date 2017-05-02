@@ -4,7 +4,7 @@ RSpec.describe Types::PoolType do
   subject { described_class }
 
   context "fields" do
-    let(:fields) { %w[id tournament name invite_code entry_fee total_collected brackets possibilities admins display_best started bracket_count] }
+    let(:fields) { %w[id tournament name inviteCode entryFee totalCollected brackets possibilities admins displayBest started bracketCount] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)

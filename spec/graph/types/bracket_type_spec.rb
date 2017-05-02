@@ -4,7 +4,7 @@ RSpec.describe Types::BracketType do
   subject { Types::BracketType }
 
   context "fields" do
-    let(:fields) { %w[id name owner pool editable tie_breaker status points possible_points best_possible_finish eliminated final_four game_decisions game_mask] }
+    let(:fields) { %w[id name owner pool editable tieBreaker status points possiblePoints bestPossibleFinish eliminated finalFour gameDecisions gameMask] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)
@@ -12,7 +12,7 @@ RSpec.describe Types::BracketType do
   end
 
   describe "best_possible_finish" do
-    subject { Types::BracketType.fields["best_possible_finish"] }
+    subject { Types::BracketType.fields["bestPossibleFinish"] }
     let(:bracket) { create(:bracket) }
     let(:bracket_point) { bracket.bracket_point }
 
@@ -76,7 +76,7 @@ RSpec.describe Types::BracketType do
   end
 
   describe "final_four" do
-    subject { Types::BracketType.fields["final_four"] }
+    subject { Types::BracketType.fields["finalFour"] }
 
     let!(:bracket) { create(:bracket, :completed) }
     let(:resolved) { subject.resolve(bracket, nil, nil) }
@@ -123,7 +123,7 @@ RSpec.describe Types::BracketType do
     let(:resolved) { subject.resolve(bracket, nil, context) }
 
     describe "game_decisions" do
-      subject { Types::BracketType.fields["game_decisions"] }
+      subject { Types::BracketType.fields["gameDecisions"] }
 
       it "is a string of zeros and ones representing the bracket decisions" do
         expect(resolved).to eq(Array.new(2**bracket.tournament.num_rounds) { |i| (bracket.tree_decisions & (1 << i)).zero? ? "0" : "1" }.join)
@@ -131,7 +131,7 @@ RSpec.describe Types::BracketType do
     end
 
     describe "game_mask" do
-      subject { Types::BracketType.fields["game_mask"] }
+      subject { Types::BracketType.fields["gameMask"] }
 
       it "is a string of zeros and ones representing the bracket bitmask" do
         expect(resolved).to eq(Array.new(2**bracket.tournament.num_rounds) { |i| (bracket.tree_mask & (1 << i)).zero? ? "0" : "1" }.join)

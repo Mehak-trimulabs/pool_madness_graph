@@ -23,11 +23,11 @@ module Types
 
     field :tournament, !TournamentType
     field :name, !types.String
-    field :invite_code, !types.String
-    field :entry_fee, !types.Int
-    field :total_collected, !types.Int
+    field :inviteCode, !types.String, property: :invite_code
+    field :entryFee, !types.Int, property: :entry_fee
+    field :totalCollected, !types.Int, property: :total_collected
     field :started, !types.Boolean, property: :started?
-    field :display_best, !types.Boolean, property: :display_best?
+    field :displayBest, !types.Boolean, property: :display_best?
     field :admins, types[!UserType]
 
     field :possibilities do
@@ -35,7 +35,7 @@ module Types
       resolve POOL_POSSIBILITIES_LAMBDA
     end
 
-    field :bracket_count do
+    field :bracketCount do
       type !types.Int
       resolve ->(pool, _args, _context) { pool.brackets.count }
     end

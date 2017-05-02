@@ -4,7 +4,7 @@ RSpec.describe Types::GameType do
   subject { Types::GameType }
 
   context "fields" do
-    let(:fields) { %w[id slot previous_slot_one previous_slot_two next_game_slot next_game_position first_team second_team winning_team losing_team round_number region] }
+    let(:fields) { %w[id slot previousSlotOne previousSlotTwo nextGameSlot nextGamePosition firstTeam secondTeam winningTeam losingTeam roundNumber region] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)

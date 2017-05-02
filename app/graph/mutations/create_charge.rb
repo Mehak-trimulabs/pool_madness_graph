@@ -1,6 +1,6 @@
 module Mutations
   CREATE_CHARGE_LAMBDA = lambda { |_object, inputs, context|
-    pool = GraphqlSchema.object_from_id(inputs["pool_id"], context)
+    pool = GraphqlSchema.object_from_id(inputs["poolId"], context)
 
     raise ActiveRecord::RecordNotFound unless context[:current_ability].can?(:read, pool)
 
@@ -26,7 +26,7 @@ module Mutations
     name "CreateCharge"
     description "Create a credit card charge for a group of brackets"
 
-    input_field :pool_id, !types.ID
+    input_field :poolId, !types.ID
     input_field :token, !types.String
 
     return_field :charge, Types::ChargeType

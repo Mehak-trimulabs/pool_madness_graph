@@ -9,7 +9,7 @@ RSpec.describe Mutations::AcceptInvitation do
   let(:graphql_result) { subject.call(nil, graphql_args, graphql_context) }
 
   context "with a valid code" do
-    let(:args) { { invite_code: pool.invite_code } }
+    let(:args) { { inviteCode: pool.invite_code } }
 
     context "and the user is not already in the pool" do
       it "adds the current user to the associated pool" do
@@ -38,7 +38,7 @@ RSpec.describe Mutations::AcceptInvitation do
   end
 
   context "with an invalid code" do
-    let(:args) { { invite_code: "invalidcode" } }
+    let(:args) { { inviteCode: "invalidcode" } }
 
     it "raises a graph error" do
       expect { graphql_result }.to raise_error(GraphQL::ExecutionError, "Invalid invite code")
@@ -47,7 +47,7 @@ RSpec.describe Mutations::AcceptInvitation do
 
   context "not logged in" do
     let(:user) { nil }
-    let(:args) { { invite_code: pool.invite_code } }
+    let(:args) { { inviteCode: pool.invite_code } }
 
     it "raises an auth error" do
       expect { graphql_result }.to raise_error(GraphQL::ExecutionError, "You must be signed in to view this information")

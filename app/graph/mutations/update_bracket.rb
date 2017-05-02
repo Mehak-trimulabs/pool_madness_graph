@@ -5,16 +5,16 @@ module Mutations
 
     raise GraphQL::ExecutionError, "You must be signed in to update this information" if user.blank?
 
-    bracket = Bracket.find(inputs["bracket_id"])
+    bracket = Bracket.find(inputs["bracketId"])
 
     raise GraphQL::ExecutionError, "You cannot update this bracket" unless ability.can?(:edit, bracket)
 
-    game_decisions = inputs["game_decisions"] ? BitstringUtils.to_int(inputs["game_decisions"]) : bracket.game_decisions
-    game_mask = inputs["game_mask"] ? BitstringUtils.to_int(inputs["game_mask"]) : bracket.game_mask
+    game_decisions = inputs["gameDecisions"] ? BitstringUtils.to_int(inputs["gameDecisions"]) : bracket.game_decisions
+    game_mask = inputs["gameMask"] ? BitstringUtils.to_int(inputs["gameMask"]) : bracket.game_mask
     bracket.update(
       {
         name: inputs["name"],
-        tie_breaker: inputs["tie_breaker"],
+        tie_breaker: inputs["tieBreaker"],
         tree_decisions: game_decisions,
         tree_mask: game_mask
       }.compact
@@ -31,11 +31,11 @@ module Mutations
     name "UpdateBracket"
     description "Update a bracket entry"
 
-    input_field :bracket_id, !types.ID
+    input_field :bracketId, !types.ID
     input_field :name, types.String
-    input_field :tie_breaker, types.Int
-    input_field :game_decisions, types.String
-    input_field :game_mask, types.String
+    input_field :tieBreaker, types.Int
+    input_field :gameDecisions, types.String
+    input_field :gameMask, types.String
 
     return_field :bracket, Types::BracketType
     return_field :errors, ValidationErrorList

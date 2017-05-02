@@ -4,7 +4,7 @@ RSpec.describe Types::ViewerType do
   subject { described_class }
 
   context "fields" do
-    let(:fields) { %w[id current_user pools] }
+    let(:fields) { %w[id currentUser pools] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)

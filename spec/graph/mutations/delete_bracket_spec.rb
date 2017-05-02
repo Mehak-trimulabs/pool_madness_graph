@@ -18,8 +18,7 @@ RSpec.describe Mutations::DeleteBracket do
 
   context "logged in" do
     let(:bracket) { create(:bracket) }
-    let(:bracket_graph_id) { GraphqlSchema.id_from_object(bracket, nil, nil) }
-    let(:args) { { bracket_id: bracket_graph_id } }
+    let(:args) { { bracketId: bracket.id } }
 
     context "user who cannot destroy the bracket" do
       it "raises an auth error" do

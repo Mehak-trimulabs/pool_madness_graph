@@ -27,11 +27,11 @@ RSpec.describe Mutations::CreateBracket do
 
     let(:args) do
       {
-        pool_id: pool_graph_id,
+        poolId: pool_graph_id,
         name: name,
-        tie_breaker: tie_breaker,
-        game_decisions: game_decisions,
-        game_mask: game_mask
+        tieBreaker: tie_breaker,
+        gameDecisions: game_decisions,
+        gameMask: game_mask
       }
     end
 

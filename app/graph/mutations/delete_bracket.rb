@@ -5,7 +5,7 @@ module Mutations
 
     raise GraphQL::ExecutionError, "You must be signed in to update this information" if user.blank?
 
-    bracket = Bracket.find(inputs["bracket_id"])
+    bracket = Bracket.find(inputs["bracketId"])
     pool = bracket.pool
 
     if ability.can?(:destroy, bracket)
@@ -15,7 +15,7 @@ module Mutations
     end
 
     {
-      deleted_bracket_id: inputs["bracket_id"],
+      deletedBracketId: inputs["bracketId"],
       pool: pool
     }
   end
@@ -23,9 +23,9 @@ module Mutations
   DeleteBracket = GraphQL::Relay::Mutation.define do
     name "DeleteBracket"
 
-    input_field :bracket_id, !types.ID
+    input_field :bracketId, !types.ID
 
-    return_field :deleted_bracket_id, !types.ID
+    return_field :deletedBracketId, !types.ID
     return_field :pool, Types::PoolType
 
     resolve DELETE_BRACKET_LAMBDA

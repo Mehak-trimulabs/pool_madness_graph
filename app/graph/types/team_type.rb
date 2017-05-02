@@ -7,6 +7,6 @@ module Types
 
     field :seed, !types.Int
     field :name, !types.String
-    field :starting_slot, !types.Int
+    field :startingSlot, !types.Int, property: :starting_slot
   end
 end

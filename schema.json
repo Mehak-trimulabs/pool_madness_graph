@@ -191,7 +191,7 @@
           "description": "The top level view of the graph",
           "fields": [
             {
-              "name": "current_user",
+              "name": "currentUser",
               "description": null,
               "args": [
 
@@ -371,7 +371,7 @@
               "deprecationReason": null
             },
             {
-              "name": "bracket_count",
+              "name": "bracketCount",
               "description": null,
               "args": [
 
@@ -442,7 +442,7 @@
               "deprecationReason": null
             },
             {
-              "name": "display_best",
+              "name": "displayBest",
               "description": null,
               "args": [
 
@@ -460,7 +460,7 @@
               "deprecationReason": null
             },
             {
-              "name": "entry_fee",
+              "name": "entryFee",
               "description": null,
               "args": [
 
@@ -496,7 +496,7 @@
               "deprecationReason": null
             },
             {
-              "name": "invite_code",
+              "name": "inviteCode",
               "description": null,
               "args": [
 
@@ -568,7 +568,7 @@
               "deprecationReason": null
             },
             {
-              "name": "total_collected",
+              "name": "totalCollected",
               "description": null,
               "args": [
 
@@ -639,7 +639,7 @@
               "deprecationReason": null
             },
             {
-              "name": "game_decisions",
+              "name": "gameDecisions",
               "description": null,
               "args": [
 
@@ -657,7 +657,7 @@
               "deprecationReason": null
             },
             {
-              "name": "game_mask",
+              "name": "gameMask",
               "description": null,
               "args": [
 
@@ -675,7 +675,7 @@
               "deprecationReason": null
             },
             {
-              "name": "games_remaining",
+              "name": "gamesRemaining",
               "description": null,
               "args": [
 
@@ -773,7 +773,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tip_off",
+              "name": "tipOff",
               "description": null,
               "args": [
 
@@ -818,7 +818,7 @@
           "description": "A round of games in a tournament",
           "fields": [
             {
-              "name": "end_date",
+              "name": "endDate",
               "description": null,
               "args": [
 
@@ -908,7 +908,7 @@
               "deprecationReason": null
             },
             {
-              "name": "start_date",
+              "name": "startDate",
               "description": null,
               "args": [
 
@@ -997,7 +997,7 @@
               "deprecationReason": null
             },
             {
-              "name": "starting_slot",
+              "name": "startingSlot",
               "description": null,
               "args": [
 
@@ -1103,7 +1103,7 @@
               "deprecationReason": null
             },
             {
-              "name": "first_place",
+              "name": "firstPlace",
               "description": null,
               "args": [
 
@@ -1121,7 +1121,7 @@
               "deprecationReason": null
             },
             {
-              "name": "second_place",
+              "name": "secondPlace",
               "description": null,
               "args": [
 
@@ -1139,7 +1139,7 @@
               "deprecationReason": null
             },
             {
-              "name": "third_place",
+              "name": "thirdPlace",
               "description": null,
               "args": [
 
@@ -1170,7 +1170,7 @@
           "description": "A possible outcome of a game",
           "fields": [
             {
-              "name": "first_team",
+              "name": "firstTeam",
               "description": null,
               "args": [
 
@@ -1184,7 +1184,7 @@
               "deprecationReason": null
             },
             {
-              "name": "losing_team",
+              "name": "losingTeam",
               "description": null,
               "args": [
 
@@ -1198,7 +1198,7 @@
               "deprecationReason": null
             },
             {
-              "name": "next_game_position",
+              "name": "nextGamePosition",
               "description": null,
               "args": [
 
@@ -1212,7 +1212,7 @@
               "deprecationReason": null
             },
             {
-              "name": "next_game_slot",
+              "name": "nextGameSlot",
               "description": null,
               "args": [
 
@@ -1226,7 +1226,7 @@
               "deprecationReason": null
             },
             {
-              "name": "previous_slot_one",
+              "name": "previousSlotOne",
               "description": null,
               "args": [
 
@@ -1240,7 +1240,7 @@
               "deprecationReason": null
             },
             {
-              "name": "previous_slot_two",
+              "name": "previousSlotTwo",
               "description": null,
               "args": [
 
@@ -1268,7 +1268,7 @@
               "deprecationReason": null
             },
             {
-              "name": "round_number",
+              "name": "roundNumber",
               "description": null,
               "args": [
 
@@ -1286,7 +1286,7 @@
               "deprecationReason": null
             },
             {
-              "name": "second_team",
+              "name": "secondTeam",
               "description": null,
               "args": [
 
@@ -1318,7 +1318,7 @@
               "deprecationReason": null
             },
             {
-              "name": "winning_team",
+              "name": "winningTeam",
               "description": null,
               "args": [
 
@@ -1345,7 +1345,7 @@
           "description": "A bracket",
           "fields": [
             {
-              "name": "best_possible_finish",
+              "name": "bestPossibleFinish",
               "description": null,
               "args": [
 
@@ -1399,7 +1399,7 @@
               "deprecationReason": null
             },
             {
-              "name": "final_four",
+              "name": "finalFour",
               "description": null,
               "args": [
 
@@ -1417,7 +1417,7 @@
               "deprecationReason": null
             },
             {
-              "name": "game_decisions",
+              "name": "gameDecisions",
               "description": null,
               "args": [
 
@@ -1435,7 +1435,7 @@
               "deprecationReason": null
             },
             {
-              "name": "game_mask",
+              "name": "gameMask",
               "description": null,
               "args": [
 
@@ -1543,7 +1543,7 @@
               "deprecationReason": null
             },
             {
-              "name": "possible_points",
+              "name": "possiblePoints",
               "description": null,
               "args": [
 
@@ -1579,7 +1579,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tie_breaker",
+              "name": "tieBreaker",
               "description": null,
               "args": [
 
@@ -1781,7 +1781,7 @@
           "description": "The mutation root of this schema",
           "fields": [
             {
-              "name": "accept_invitation",
+              "name": "acceptInvitation",
               "description": "Join a pool with a given invite code",
               "args": [
                 {
@@ -1808,7 +1808,7 @@
               "deprecationReason": null
             },
             {
-              "name": "create_bracket",
+              "name": "createBracket",
               "description": null,
               "args": [
                 {
@@ -1835,7 +1835,7 @@
               "deprecationReason": null
             },
             {
-              "name": "create_charge",
+              "name": "createCharge",
               "description": "Create a credit card charge for a group of brackets",
               "args": [
                 {
@@ -1862,7 +1862,7 @@
               "deprecationReason": null
             },
             {
-              "name": "delete_bracket",
+              "name": "deleteBracket",
               "description": null,
               "args": [
                 {
@@ -1889,7 +1889,7 @@
               "deprecationReason": null
             },
             {
-              "name": "update_bracket",
+              "name": "updateBracket",
               "description": "Update a bracket entry",
               "args": [
                 {
@@ -1916,7 +1916,7 @@
               "deprecationReason": null
             },
             {
-              "name": "update_profile",
+              "name": "updateProfile",
               "description": "Update the current user's profile",
               "args": [
                 {
@@ -2043,7 +2043,7 @@
               "deprecationReason": null
             },
             {
-              "name": "stripe_id",
+              "name": "stripeId",
               "description": null,
               "args": [
 
@@ -2085,7 +2085,7 @@
               "defaultValue": null
             },
             {
-              "name": "pool_id",
+              "name": "poolId",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2175,7 +2175,7 @@
               "defaultValue": null
             },
             {
-              "name": "invite_code",
+              "name": "inviteCode",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2348,7 +2348,7 @@
           "description": "Autogenerated return type of CreateBracket",
           "fields": [
             {
-              "name": "bracket_edge",
+              "name": "bracketEdge",
               "description": null,
               "args": [
 
@@ -2432,7 +2432,7 @@
               "defaultValue": null
             },
             {
-              "name": "pool_id",
+              "name": "poolId",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2460,7 +2460,7 @@
               "defaultValue": null
             },
             {
-              "name": "tie_breaker",
+              "name": "tieBreaker",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2474,7 +2474,7 @@
               "defaultValue": null
             },
             {
-              "name": "game_decisions",
+              "name": "gameDecisions",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2488,7 +2488,7 @@
               "defaultValue": null
             },
             {
-              "name": "game_mask",
+              "name": "gameMask",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2582,7 +2582,7 @@
               "defaultValue": null
             },
             {
-              "name": "bracket_id",
+              "name": "bracketId",
               "description": null,
               "type": {
                 "kind": "NON_NULL",
@@ -2606,7 +2606,7 @@
               "defaultValue": null
             },
             {
-              "name": "tie_breaker",
+              "name": "tieBreaker",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -2616,7 +2616,7 @@
               "defaultValue": null
             },
             {
-              "name": "game_decisions",
+              "name": "gameDecisions",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -2626,7 +2626,7 @@
               "defaultValue": null
             },
             {
-              "name": "game_mask",
+              "name": "gameMask",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -2660,7 +2660,7 @@
               "deprecationReason": null
             },
             {
-              "name": "deleted_bracket_id",
+              "name": "deletedBracketId",
               "description": null,
               "args": [
 
@@ -2716,7 +2716,7 @@
               "defaultValue": null
             },
             {
-              "name": "bracket_id",
+              "name": "bracketId",
               "description": null,
               "type": {
                 "kind": "NON_NULL",

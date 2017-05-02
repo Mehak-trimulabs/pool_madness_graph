@@ -10,13 +10,13 @@ module Types
     field :editable, !types.Boolean do
       resolve ->(bracket, _args, context) { context[:current_ability].can?(:edit, bracket) }
     end
-    field :tie_breaker, types.Int
+    field :tieBreaker, types.Int, property: :tie_breaker
     field :status, !types.String
     field :points, !types.Int
-    field :possible_points, !types.Int
-    field :final_four, types[TeamType], property: :sorted_four
+    field :possiblePoints, !types.Int, property: :possible_points
+    field :finalFour, types[TeamType], property: :sorted_four
 
-    field :best_possible_finish, !types.String do
+    field :bestPossibleFinish, !types.String do
       resolve ->(bracket, _args, _context) { bracket.best_possible < 3 ? (bracket.best_possible + 1).ordinalize : "-" }
     end
 
@@ -26,11 +26,11 @@ module Types
 
     field :pool, !PoolType
 
-    field :game_decisions, !types.String do
+    field :gameDecisions, !types.String do
       resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_decisions, 2**bracket.tournament.num_rounds) }
     end
 
-    field :game_mask, !types.String do
+    field :gameMask, !types.String do
       resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_mask, 2**bracket.tournament.num_rounds) }
     end
   end

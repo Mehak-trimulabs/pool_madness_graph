@@ -17,7 +17,7 @@ RSpec.describe Mutations::CreateCharge do
   let!(:brackets) { create_list(:bracket, 2, :completed, user: user, pool: pool) }
 
   context "valid" do
-    let(:args) { { pool_id: pool_id, token: stripe_helper.generate_card_token } }
+    let(:args) { { poolId: pool_id, token: stripe_helper.generate_card_token } }
     let(:charge) { graphql_result[:charge] }
 
     it "charges the credit card" do
@@ -37,7 +37,7 @@ RSpec.describe Mutations::CreateCharge do
   end
 
   context "stripe error" do
-    let(:args) { { pool_id: pool_id, token: stripe_helper.generate_card_token } }
+    let(:args) { { poolId: pool_id, token: stripe_helper.generate_card_token } }
 
     before do
       StripeMock.prepare_card_error(:processing_error)
@@ -53,7 +53,7 @@ RSpec.describe Mutations::CreateCharge do
 
   context "user outside of pool" do
     let(:pool_id) { GraphqlSchema.id_from_object(create(:pool), nil, nil) }
-    let(:args) { { pool_id: pool_id, token: stripe_helper.generate_card_token } }
+    let(:args) { { poolId: pool_id, token: stripe_helper.generate_card_token } }
 
     it "is not found" do
       expect { graphql_result }.to raise_error(ActiveRecord::RecordNotFound)
