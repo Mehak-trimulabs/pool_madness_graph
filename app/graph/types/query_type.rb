@@ -1,6 +1,6 @@
 module Types
-  RootType = GraphQL::ObjectType.define do
-    name "RootType"
+  QueryType = GraphQL::ObjectType.define do
+    name "Query"
     description "The query root of this schema"
 
     field :node do

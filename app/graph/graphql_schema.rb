@@ -1,5 +1,5 @@
 GraphqlSchema = GraphQL::Schema.define do
-  query ::Types::RootType
+  query ::Types::QueryType
   mutation ::Mutations::RootMutation
 
   id_from_object ->(object, _type_definition, _query_ctx) { object.id }

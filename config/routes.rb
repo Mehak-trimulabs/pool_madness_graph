@@ -1,3 +1,3 @@
-PoolMadness::Application.routes.draw do
-  post "/graphql" => "pages#graphql"
+Rails.application.routes.draw do
+  post "/graphql", to: "graphql#execute"
 end

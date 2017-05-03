@@ -2,7 +2,7 @@
   "data": {
     "__schema": {
       "queryType": {
-        "name": "RootType"
+        "name": "Query"
       },
       "mutationType": {
         "name": "RootMutation"
@@ -11,7 +11,7 @@
       "types": [
         {
           "kind": "OBJECT",
-          "name": "RootType",
+          "name": "Query",
           "description": "The query root of this schema",
           "fields": [
             {
