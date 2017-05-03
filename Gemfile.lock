@@ -104,8 +104,6 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     google-protobuf (3.2.0.2)
-    graphiql-rails (1.4.1)
-      rails
     graphql (1.5.10)
     hashdiff (0.3.4)
     hitimes (1.2.4)
@@ -283,7 +281,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fuubar
-  graphiql-rails
   graphql
   knock
   listen

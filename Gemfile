@@ -26,7 +26,6 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "graphiql-rails"
   gem "rspec-rails"
   gem "rubocop"
 end
