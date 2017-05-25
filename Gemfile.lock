@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/DatabaseCleaner/database_cleaner.git
-  revision: f30d5be108aa5edadfc16c480be3ed23cfbe0e05
-  specs:
-    database_cleaner (1.6.0)
-
-GIT
   remote: git://github.com/haruska/active_attr.git
   revision: ed6ba094b5bd7035461face267212e11a06a5066
   specs:
@@ -77,6 +71,7 @@ GEM
       safe_yaml (~> 1.0.0)
     dalli (2.7.6)
     dante (0.2.0)
+    database_cleaner (1.6.1)
     diff-lcs (1.3)
     docile (1.1.5)
     domain_name (0.5.20170404)
@@ -274,7 +269,7 @@ DEPENDENCIES
   binary_decision_tree
   cancancan
   dalli
-  database_cleaner!
+  database_cleaner
   dotenv-rails
   email_validator
   espn_scraper!

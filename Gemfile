@@ -19,7 +19,7 @@ gem "sidekiq"
 gem "stripe"
 
 group :staging, :development, :test do
-  gem "database_cleaner", github: "DatabaseCleaner/database_cleaner"
+  gem "database_cleaner"
   gem "factory_girl_rails"
   gem "faker"
 end
