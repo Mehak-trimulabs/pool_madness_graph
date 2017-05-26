@@ -17,10 +17,10 @@ module Types
     field :teams, !types[TeamType]
 
     field :gameDecisions, !types.String do
-      resolve ->(tournament, _args, _context) { BitstringUtils.to_string(tournament.game_decisions, 2**tournament.num_rounds) }
+      resolve ->(tournament, _args, _context) { ::BitstringUtils.to_string(tournament.game_decisions, 2**tournament.num_rounds) }
     end
     field :gameMask, !types.String do
-      resolve ->(tournament, _args, _context) { BitstringUtils.to_string(tournament.game_mask, 2**tournament.num_rounds) }
+      resolve ->(tournament, _args, _context) { ::BitstringUtils.to_string(tournament.game_mask, 2**tournament.num_rounds) }
     end
   end
 end

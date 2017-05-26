@@ -27,11 +27,11 @@ module Types
     field :pool, !PoolType
 
     field :gameDecisions, !types.String do
-      resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_decisions, 2**bracket.tournament.num_rounds) }
+      resolve ->(bracket, _args, _context) { ::BitstringUtils.to_string(bracket.tree_decisions, 2**bracket.tournament.num_rounds) }
     end
 
     field :gameMask, !types.String do
-      resolve ->(bracket, _args, _context) { BitstringUtils.to_string(bracket.tree_mask, 2**bracket.tournament.num_rounds) }
+      resolve ->(bracket, _args, _context) { ::BitstringUtils.to_string(bracket.tree_mask, 2**bracket.tournament.num_rounds) }
     end
   end
 end

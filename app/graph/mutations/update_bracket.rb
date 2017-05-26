@@ -9,8 +9,8 @@ module Mutations
 
     raise GraphQL::ExecutionError, "You cannot update this bracket" unless ability.can?(:edit, bracket)
 
-    game_decisions = inputs["gameDecisions"] ? BitstringUtils.to_int(inputs["gameDecisions"]) : bracket.game_decisions
-    game_mask = inputs["gameMask"] ? BitstringUtils.to_int(inputs["gameMask"]) : bracket.game_mask
+    game_decisions = inputs["gameDecisions"] ? ::BitstringUtils.to_int(inputs["gameDecisions"]) : bracket.game_decisions
+    game_mask = inputs["gameMask"] ? ::BitstringUtils.to_int(inputs["gameMask"]) : bracket.game_mask
     bracket.update(
       {
         name: inputs["name"],
