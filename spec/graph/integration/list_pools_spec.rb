@@ -46,7 +46,7 @@ RSpec.describe "Querying the list of pools" do
 
     it "is a list of all pools" do
       ids = pool_nodes.map { |pool_attrs| pool_attrs["id"] }
-      expect(ids).to match_array(pools.map(&:id))
+      expect(ids).to match_array(Pool.all.pluck(:id))
 
       pool_nodes.each do |pool_node|
         pool = Pool.find(pool_node["id"])
