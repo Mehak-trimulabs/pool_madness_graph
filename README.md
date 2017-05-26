@@ -5,6 +5,7 @@ This is the GraphQL API for https://pool-madness.com. The project is used to man
 Madness basketball tournament. Mostly though, this project is open-sourced to highlight and discuss different patterns
 and practices of developing the GraphQL API.
 
+
 Prerequisites
 ---------------
 
