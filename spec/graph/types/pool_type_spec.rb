@@ -54,7 +54,7 @@ RSpec.describe Types::PoolType do
         let(:user) { bracket.user }
 
         it "is a list of the current user's brackets" do
-          results = subject.call(pool, nil, current_user: user)
+          results = subject.call(pool, nil, current_user: user, current_ability: Ability.new(user))
 
           expect(results).to eq([bracket])
         end

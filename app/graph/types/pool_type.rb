@@ -3,7 +3,7 @@ module Types
     if pool.started?
       pool.brackets.includes(:bracket_point, :user).joins(:bracket_point).order("points desc", "possible_points desc")
     else
-      pool.brackets.where(user_id: context[:current_user]).order(:payment_state)
+      pool.brackets.accessible_by(context[:current_ability]).order(:payment_state)
     end
   }
 
