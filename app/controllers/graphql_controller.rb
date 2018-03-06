@@ -8,6 +8,10 @@ class GraphqlController < ApplicationController
       optics_agent: request.env[:optics_agent].try(:with_document, query)
     }
     result = GraphqlSchema.execute(query, variables: variables, context: context)
+
+    logger.info("Graph Result")
+    logger.info(result.to_h)
+
     render json: result
   end
 

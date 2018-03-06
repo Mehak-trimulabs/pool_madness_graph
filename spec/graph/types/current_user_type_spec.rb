@@ -4,7 +4,7 @@ RSpec.describe Types::CurrentUserType do
   subject { Types::CurrentUserType }
 
   context "fields" do
-    let(:fields) { %w[id email name admin] }
+    let(:fields) { %w[userId email name admin] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)
