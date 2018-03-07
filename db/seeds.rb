@@ -4,7 +4,7 @@ admin = User.create_with(name: ENV['ADMIN_NAME'].dup).find_or_create_by(email: E
 admin.update(admin: true)
 puts "admin user: #{admin.name}"
 
-user = User.create_with(name: 'Regular User').find_or_create_by(email: 'user@pool-madness.com')
+user = User.create_with(name: 'Regular User').find_or_create_by(email: ENV['USER_EMAIL'])
 puts "regular user: #{user.name}"
 
 completed = FactoryGirl.create(:tournament, :completed, name: "Completed Tourney")

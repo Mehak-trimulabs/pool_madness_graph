@@ -15,7 +15,7 @@ class ApplicationController < ActionController::API
 
         unless current_user
           # legacy user?
-          current_user = User.find_by(email: email, auth0_id: nil)
+          current_user = User.find_by(email: email)
           current_user.try(:update!, auth0_id: sub)
         end
 
