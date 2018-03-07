@@ -1,8 +1,8 @@
 Knock.setup do |config|
   config.token_audience = -> { ENV["AUTH0_CLIENT_ID"] }
   config.token_signature_algorithm = "RS256"
-  config.token_secret_signature_key = -> { ENV["AUTH0_CLIENT_SECRET"] }
 
+  # config.token_secret_signature_key = -> { ENV["AUTH0_CLIENT_SECRET"] } //not needed with jwks below.
   # config.token_public_key = nil
 
   unless Rails.env.test?

@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "2.4.1"
 
 gem "active_attr", github: "haruska/active_attr"
+gem "auth0"
 gem "binary_decision_tree"
 gem "cancancan"
 gem "dalli"

@@ -61,6 +61,8 @@ GEM
     airbrake-ruby (2.1.0)
     arel (8.0.0)
     ast (2.3.0)
+    auth0 (4.4.0)
+      rest-client (~> 2.0)
     bcrypt (3.1.11)
     binary_decision_tree (0.1.3)
     builder (3.2.3)
@@ -266,6 +268,7 @@ PLATFORMS
 DEPENDENCIES
   active_attr!
   airbrake
+  auth0
   binary_decision_tree
   cancancan
   dalli
