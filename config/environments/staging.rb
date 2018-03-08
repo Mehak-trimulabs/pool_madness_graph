@@ -72,7 +72,7 @@ Rails.application.configure do
 
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
-  response = RestClient::Resource.new("https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}", ssl_version: "TLSv1").get
+  response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
 
   first_inbox = JSON.parse(response)[0]
 
