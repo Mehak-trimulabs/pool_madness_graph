@@ -4,8 +4,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     context = {
       current_user: current_user,
-      current_ability: current_ability,
-      optics_agent: request.env[:optics_agent].try(:with_document, query)
+      current_ability: current_ability
     }
     result = GraphqlSchema.execute(query, variables: variables, context: context)
 
