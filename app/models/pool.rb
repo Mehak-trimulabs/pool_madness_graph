@@ -1,6 +1,6 @@
 class Pool < ApplicationRecord
   belongs_to :tournament
-  belongs_to :pool_group
+  belongs_to :pool_group, required: false
   has_many :brackets, dependent: :destroy
   has_many :bracket_points, through: :brackets
   has_many :pool_users, dependent: :destroy
