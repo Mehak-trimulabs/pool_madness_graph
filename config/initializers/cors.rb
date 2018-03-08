@@ -4,6 +4,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins  "*" # "localhost:3000", "staging.pool-madness.com", "pool-madness.com", "www.pool-madness.com"
     resource "*",
              headers: :any,
-             methods: %i[post]
+             methods: %i[post options]
   end
 end
