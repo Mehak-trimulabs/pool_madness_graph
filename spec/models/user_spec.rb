@@ -20,6 +20,8 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many(:brackets_to_pay) }
   it { is_expected.to have_many(:pool_users) }
   it { is_expected.to have_many(:pools).through(:pool_users) }
+  it { is_expected.to have_many(:memberships).dependent(:destroy) }
+  it { is_expected.to have_many(:pool_groups).through(:memberships) }
 
   it { is_expected.to allow_value("user@foo.com").for(:email) }
   it { is_expected.to allow_value("THE_USER@foo.bar.org").for(:email) }

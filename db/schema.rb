@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308161248) do
+ActiveRecord::Schema.define(version: 20180308164402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+  enable_extension "pgcrypto"
 
   create_table "bracket_points", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer "points", default: 0, null: false
@@ -44,6 +45,24 @@ ActiveRecord::Schema.define(version: 20180308161248) do
     t.index ["payment_collector_id"], name: "index_brackets_on_payment_collector_id"
     t.index ["pool_id"], name: "index_brackets_on_pool_id"
     t.index ["user_id"], name: "index_brackets_on_user_id"
+  end
+
+  create_table "memberships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "pool_group_id", null: false
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pool_group_id"], name: "index_memberships_on_pool_group_id"
+    t.index ["user_id", "pool_group_id"], name: "index_memberships_on_user_id_and_pool_group_id", unique: true
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "pool_groups", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_pool_groups_on_name", unique: true
   end
 
   create_table "pool_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
