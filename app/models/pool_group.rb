@@ -1,4 +1,5 @@
 class PoolGroup < ApplicationRecord
+  has_many :pools, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
   has_many :admins, -> { where(memberships: { admin: true }) }, class_name: "User", source: "user", through: :memberships

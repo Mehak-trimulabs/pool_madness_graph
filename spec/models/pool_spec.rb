@@ -6,6 +6,8 @@ RSpec.describe Pool, type: :model do
   subject { create(:pool, tournament: tournament) }
 
   it { is_expected.to belong_to(:tournament) }
+  it { is_expected.to belong_to(:pool_group) }
+
   it { is_expected.to have_many(:brackets) }
   it { is_expected.to have_many(:pool_users) }
   it { is_expected.to have_many(:users).through(:pool_users) }

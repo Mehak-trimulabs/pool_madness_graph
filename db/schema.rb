@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308164402) do
+ActiveRecord::Schema.define(version: 20180308184219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 20180308164402) do
     t.string "invite_code"
     t.integer "entry_fee", default: 1000, null: false
     t.uuid "tournament_id"
+    t.uuid "pool_group_id"
     t.index ["invite_code"], name: "index_pools_on_invite_code", unique: true
+    t.index ["pool_group_id"], name: "index_pools_on_pool_group_id"
     t.index ["tournament_id"], name: "index_pools_on_tournament_id"
   end
 

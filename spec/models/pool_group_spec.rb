@@ -14,8 +14,9 @@ RSpec.describe PoolGroup do
   describe "associations" do
     subject { create(:pool_group) }
 
-    it { is_expected.to have_many(:users).through(:memberships) }
     it { is_expected.to have_many(:memberships).dependent(:destroy) }
+    it { is_expected.to have_many(:pools) }
+    it { is_expected.to have_many(:users).through(:memberships) }
     it { is_expected.to have_many(:admins).through(:memberships) }
 
     describe "#admins" do
