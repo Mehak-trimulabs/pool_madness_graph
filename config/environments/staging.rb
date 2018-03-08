@@ -70,7 +70,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "pool_madness_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
