@@ -1,11 +1,16 @@
 DatabaseCleaner.clean_with :truncation
 
-admin = User.create_with(name: ENV['ADMIN_NAME'].dup).find_or_create_by(email: ENV['ADMIN_EMAIL'].dup, auth0_id: Auth0Api.lookup(ENV['ADMIN_EMAIL']))
+admin = User.create_with(name: ENV['ADMIN_NAME'].dup, auth0_id: SecureRandom.uuid).find_or_create_by(email: ENV['ADMIN_EMAIL'].dup)
 admin.update(admin: true)
 puts "admin user: #{admin.name}"
 
-user = User.create_with(name: 'Regular User').find_or_create_by(email: ENV['USER_EMAIL'], auth0_id: Auth0Api.lookup(ENV['USER_EMAIL']))
+user = User.create_with(name: 'Regular User', auth0_id: SecureRandom.uuid).find_or_create_by(email: ENV['USER_EMAIL'].dup)
 puts "regular user: #{user.name}"
+
+if ENV["AUTH0_MGMT_TOKEN"]
+  admin.update!(auth0_id: Auth0Api.lookup(admin.email))
+  user.update!(auth0_id: Auth0Api.lookup(user.email))
+end
 
 completed = FactoryBot.create(:tournament, :completed, name: "Completed Tourney")
 final_four = FactoryBot.create(:tournament, :in_final_four, name: "Final Four Tourney")
