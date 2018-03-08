@@ -19,8 +19,8 @@ namespace :seed_data do
   end
 
   def random_score(game)
-    game.score_one = rand(50) + 50
-    game.score_two = rand(50) + 50 until game.score_two.present? && game.score_one != game.score_two
+    game.score_one = rand(50..99)
+    game.score_two = rand(50..99) until game.score_two.present? && game.score_one != game.score_two
     game.save!
   end
 end

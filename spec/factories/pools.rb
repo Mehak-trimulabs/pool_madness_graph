@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :pool do
     tournament
     name { Faker::Company.name }

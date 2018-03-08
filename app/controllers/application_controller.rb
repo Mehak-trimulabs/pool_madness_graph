@@ -4,6 +4,8 @@ class ApplicationController < ActionController::API
   protected
 
   def current_user
+    return nil unless auth_token
+
     sub = auth_token.payload["sub"]
     email = auth_token.payload["email"]
 
@@ -40,6 +42,6 @@ class ApplicationController < ActionController::API
   end
 
   def auth_token
-    Knock::AuthToken.new(token: token)
+    Knock::AuthToken.new(token: token) if token.present?
   end
 end

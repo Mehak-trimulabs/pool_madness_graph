@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :round do
     tournament
     number { (1..tournament.num_rounds).to_a.sample }

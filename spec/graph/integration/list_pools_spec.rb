@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Querying the list of pools" do
   let(:query_string) do
-    <<-EOF
+    <<-QUERY
         query {
           viewer {
             pools {
@@ -31,7 +31,7 @@ RSpec.describe "Querying the list of pools" do
             }
           }
         }
-    EOF
+    QUERY
   end
 
   let!(:pools) { create_list :pool, 3 }

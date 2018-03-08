@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :possible_outcome_set do
     skip_create
     pool

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.4.1"
+ruby "2.4.3"
 
 gem "active_attr", github: "haruska/active_attr"
 gem "auth0"
@@ -21,7 +21,7 @@ gem "stripe"
 
 group :staging, :development, :test do
   gem "database_cleaner"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "faker"
 end
 

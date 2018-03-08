@@ -6,7 +6,7 @@ GraphqlSchema = GraphQL::Schema.define do
 
   object_from_id ->(id, _query_ctx) { ApplicationRecord.global_find(id) }
 
-  resolve_type ->(object, _context) { object.graph_type }
+  resolve_type ->(_type, object, _context) { object.graph_type }
 end
 
 GraphqlSchema.rescue_from(ActiveRecord::RecordInvalid) do |error|

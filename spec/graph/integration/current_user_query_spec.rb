@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Querying the current user" do
   let(:query_string) do
-    <<-EOF
+    <<-QUERY
       query {
         viewer {
           currentUser {
@@ -11,7 +11,7 @@ RSpec.describe "Querying the current user" do
           }
         }
       }
-    EOF
+    QUERY
   end
 
   let(:graph_context) { { current_user: user, current_ability: Ability.new(user) } }
