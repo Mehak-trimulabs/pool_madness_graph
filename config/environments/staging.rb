@@ -70,23 +70,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "pool_madness_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # ActionMailer Config
-  # Setup for production - deliveries, no errors raised
-  response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
-
-  first_inbox = JSON.parse(response)[0]
-
-  config.action_mailer.default_url_options = { host: ENV["HOST"] }
-  config.action_mailer.asset_host = "https://#{ENV['HOST']}"
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: first_inbox["username"],
-    password: first_inbox["password"],
-    address: first_inbox["domain"],
-    domain: first_inbox["domain"],
-    port: first_inbox["smtp_ports"][0],
-    authentication: :plain
-  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
