@@ -8,4 +8,7 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: { case_sensitive: false },
             format: { with: EmailValidator.regexp }
+
+  validates :auth0_id, presence: true, uniqueness: true
+  validates :name, presence: true
 end
