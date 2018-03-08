@@ -17,5 +17,7 @@ module PoolMadness
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.api_only = true
+
+    config.assets.enabled = false
   end
 end
