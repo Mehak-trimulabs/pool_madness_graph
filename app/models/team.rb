@@ -4,7 +4,7 @@ class Team < ApplicationRecord
   MIDWEST = "Midwest".freeze
   SOUTH = "South".freeze
 
-  REGIONS = [EAST, WEST, MIDWEST, SOUTH].freeze
+  REGIONS = [SOUTH, WEST, EAST, MIDWEST].freeze
 
   belongs_to :tournament
 
