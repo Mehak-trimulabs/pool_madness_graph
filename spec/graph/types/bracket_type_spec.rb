@@ -4,7 +4,7 @@ RSpec.describe Types::BracketType do
   subject { Types::BracketType }
 
   context "fields" do
-    let(:fields) { %w[id name owner pool editable tieBreaker status points possiblePoints bestPossibleFinish eliminated finalFour gameDecisions gameMask] }
+    let(:fields) { %w[id name owner paymentCollector pool editable tieBreaker status points possiblePoints bestPossibleFinish eliminated finalFour gameDecisions gameMask] }
 
     it "has the proper fields" do
       expect(subject.fields.keys).to match_array(fields)

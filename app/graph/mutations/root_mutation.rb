@@ -9,5 +9,6 @@ module Mutations
     field :createBracket, field: CreateBracket.field
     field :updateBracket, field: UpdateBracket.field
     field :deleteBracket, field: DeleteBracket.field
+    field :markBracketPaid, field: MarkBracketPaid.field
   end
 end

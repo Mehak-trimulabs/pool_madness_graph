@@ -7,6 +7,8 @@ module Types
 
     field :name, !types.String
     field :owner, !UserType, property: :user
+    field :paymentCollector, UserType, property: :payment_collector
+
     field :editable, !types.Boolean do
       resolve ->(bracket, _args, context) { context[:current_ability].can?(:edit, bracket) }
     end
