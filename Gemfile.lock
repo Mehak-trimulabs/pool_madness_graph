@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/haruska/espn-scraper.git
-  revision: 12fb43f708820840b4cf74a4b597b989b6f47898
+  revision: d857e64d5702d0ae5a4766f97766071fcc7badc8
   specs:
     espn_scraper (1.5.0)
       httparty
@@ -103,7 +103,7 @@ GEM
     hashdiff (0.3.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.16.0)
+    httparty (0.16.1)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
