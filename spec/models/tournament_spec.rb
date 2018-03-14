@@ -40,6 +40,12 @@ RSpec.describe Tournament, type: :model do
     end
   end
 
+  describe "#num_games_played" do
+    it "starts at zero" do
+      expect(subject.num_games_played).to eq(0)
+    end
+  end
+
   describe "#round_for" do
     let(:region) { Team::REGIONS.first }
 
