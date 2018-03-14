@@ -11,6 +11,11 @@ class Auth0Api
       res["user_id"] if res
     end
 
+    def lookup_email(auth0_id)
+      res = client.user(auth0_id)
+      res["email"]
+    end
+
     private
 
     def client
