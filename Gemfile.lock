@@ -264,6 +264,7 @@ DEPENDENCIES
   auth0
   binary_decision_tree
   cancancan
+  connection_pool
   dalli
   database_cleaner
   dotenv-rails
