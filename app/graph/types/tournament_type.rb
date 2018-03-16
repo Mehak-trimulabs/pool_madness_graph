@@ -16,11 +16,11 @@ module Types
     field :rounds, !types[RoundType]
 
     field :teams, !types[TeamType] do
-      resolve lambda do |tournament, _args, _context|
+      resolve lambda { |tournament, _args, _context|
         Rails.cache.fetch(tournament.teams.cache_key) do
           tournament.teams
         end
-      end
+      }
     end
 
     field :gameDecisions, !types.String do
