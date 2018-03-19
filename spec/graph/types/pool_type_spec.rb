@@ -41,8 +41,8 @@ RSpec.describe Types::PoolType do
             brackets.third.bracket_point.update(best_possible: 0, points: 1, possible_points: 4)
           end
 
-          it "is always sorted by best_possible, then actual points, then possible points" do
-            expect(results).to eq([brackets.third, brackets.first, brackets.second])
+          it "is always sorted by actual points, then possible points" do
+            expect(results).to eq([brackets.second, brackets.third, brackets.first])
           end
         end
       end

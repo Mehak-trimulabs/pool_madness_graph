@@ -1,7 +1,7 @@
 module Types
   POOL_BRACKETS_LAMBDA = lambda { |pool, _args, context|
     if pool.started?
-      pool.brackets.includes(:bracket_point, :user).joins(:bracket_point).order("best_possible", "points desc", "possible_points desc", "brackets.id")
+      pool.brackets.includes(:bracket_point, :user).joins(:bracket_point).order("points desc", "possible_points desc", "brackets.id")
     else
       pool.brackets.accessible_by(context[:current_ability]).order(:payment_state)
     end
