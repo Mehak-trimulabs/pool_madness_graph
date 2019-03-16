@@ -5,7 +5,7 @@ previous_tournament = Tournament.find_by name: previous_tournament_name
 tournament = Tournament.create(
   name: Time.current.year.to_s + name_suffix,
   num_rounds: 6,
-  tip_off: Time.parse("March 16, #{Time.current.year} 16:00 UTC").utc
+  tip_off: Time.parse("March 21, #{Time.current.year} 16:00 UTC").utc
 )
 
 team_name_hash = {

@@ -8,6 +8,6 @@ FactoryBot.define do
   end
 
   factory :admin_user, parent: :user, class: User do
-    admin true
+    admin { true }
   end
 end

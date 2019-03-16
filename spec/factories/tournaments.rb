@@ -152,7 +152,7 @@ FactoryBot.define do
     end
 
     trait :sweet_16 do
-      num_rounds 4
+      num_rounds { 4 }
     end
   end
 end

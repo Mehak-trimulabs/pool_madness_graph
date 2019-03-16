@@ -1,7 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Round do
-  subject { build(:round) }
+  let(:tournament) { create(:tournament) }
+
+  subject { build(:round, tournament: tournament) }
 
   it "has a valid factory" do
     expect(subject).to be_valid

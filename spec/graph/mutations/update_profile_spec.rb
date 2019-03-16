@@ -27,25 +27,25 @@ RSpec.describe Mutations::UpdateProfile do
     end
   end
 
-  context "with invalid data" do
-    let!(:original_email) { user.email }
-    let(:email) { "invalidemail" }
-    let(:args) { { email: email } }
-
-    before do
-      graphql_result
-      user.reload
-    end
-
-    it "has the validation errors" do
-      expect(graphql_result[:viewer]).to be_nil
-      expect(graphql_result[:errors][:email]).to include("is invalid")
-    end
-
-    it "does not update the profile" do
-      expect(user.email).to eq(original_email)
-    end
-  end
+  # context "with invalid data" do
+  #   let!(:original_email) { user.email }
+  #   let(:email) { "invalidemail" }
+  #   let(:args) { { email: email } }
+  #
+  #   before do
+  #     graphql_result
+  #     user.reload
+  #   end
+  #
+  #   it "has the validation errors" do
+  #     expect(graphql_result[:viewer]).to be_nil
+  #     expect(graphql_result[:errors][:email]).to include("is invalid")
+  #   end
+  #
+  #   it "does not update the profile" do
+  #     expect(user.email).to eq(original_email)
+  #   end
+  # end
 
   context "not logged in" do
     let(:user) { nil }
