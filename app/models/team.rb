@@ -24,6 +24,7 @@ class Team < ApplicationRecord
     game = first_game
     while game.present? && !game.decision.nil?
       return false if game.value != starting_slot
+
       game = game.parent
     end
     true

@@ -12,9 +12,7 @@ class UpdateGameScoresJob < ApplicationJob
       Tournament.current.each do |tournament|
         UpdateAllBracketScoresJob.perform_later(tournament.id)
 
-        if tournament.start_eliminating?
-          UpdatePossibleOutcomesJob.perform_later(tournament.id)
-        end
+        UpdatePossibleOutcomesJob.perform_later(tournament.id) if tournament.start_eliminating?
       end
     end
 

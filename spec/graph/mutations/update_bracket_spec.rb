@@ -13,8 +13,8 @@ RSpec.describe Mutations::UpdateBracket do
   let(:graphql_result) { subject.call(nil, graphql_args, graphql_context) }
 
   let(:completed_bracket) { create(:bracket, :completed, pool: pool) }
-  let(:name) { Faker::Lorem.words(2).join(" ") }
-  let(:tie_breaker) { Faker::Number.between(50, 120) }
+  let(:name) { Faker::Lorem.words(number: 2).join(" ") }
+  let(:tie_breaker) { Faker::Number.between(from: 50, to: 120) }
   let(:game_decisions) { Array.new(2**bracket.tournament.num_rounds) { |i| (completed_bracket.tree_decisions & (1 << i)).zero? ? "0" : "1" }.join("") }
   let(:game_mask) { Array.new(2**bracket.tournament.num_rounds) { |i| (completed_bracket.tree_mask & (1 << i)).zero? ? "0" : "1" }.join("") }
 

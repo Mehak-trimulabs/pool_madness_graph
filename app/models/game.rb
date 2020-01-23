@@ -46,6 +46,7 @@ class Game < BinaryDecisionTree::Node
 
   def next_slot
     return nil if championship?
+
     slot.even? ? 1 : 2
   end
 
@@ -77,6 +78,7 @@ class Game < BinaryDecisionTree::Node
 
   def loser
     return nil if winner.blank?
+
     ([first_team, second_team] - [winner]).first
   end
 

@@ -54,7 +54,7 @@ class SportsScores
     if started_games.present?
       5.minutes.from_now
     elsif not_started_games.present?
-      not_started_games.map { |g| g[:game_date] }.sort.first
+      not_started_games.map { |g| g[:game_date] }.min
     else
       Date.tomorrow.in_time_zone("America/New_York").noon
     end

@@ -33,9 +33,7 @@ class PossibleOutcome
 
     third_place_index = 2
     third_place_points = s_brackets[third_place_index][1]
-    while s_brackets[third_place_index + 1] && s_brackets[third_place_index + 1][1] == third_place_points
-      third_place_index += 1
-    end
+    third_place_index += 1 while s_brackets[third_place_index + 1] && s_brackets[third_place_index + 1][1] == third_place_points
 
     s_brackets[0..third_place_index].map do |bracket, points|
       index = s_brackets.index { |_b, p| p == points }

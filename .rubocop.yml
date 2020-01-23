@@ -3,40 +3,32 @@ AllCops:
     - Rakefile
     - Gemfile
     - config.ru
+    - '**/*.rb'
+    - '**/*.spec'
   Exclude:
     - tmp/**/*
     - db/**/*
     - bin/**/*
     - scripts/**/*
-
-Rails:
-  Enabled: true
-
-Rails/Output:
-  Enabled: false
+    - vendor/**/*
+    - lib/rets.rb
+    - lib/rets/**/*
+    - spec/support/graphql_spec_helper.rb
+    - schema.json
 
 Metrics/BlockLength:
-  Enabled: false
-
-Rails/TimeZone:
-  Enabled: false
-
-Rails/Date:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
 Style/DoubleNegation:
   Enabled: false
 
 Layout/SpaceBeforeFirstArg:
-  Enabled: false
-
-Rails/HasAndBelongsToMany:
   Enabled: false
 
 Lint/UnusedBlockArgument:
@@ -54,7 +46,7 @@ Style/StringLiterals:
 Metrics/AbcSize:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
@@ -87,11 +79,14 @@ Style/GuardClause:
 Style/RegexpLiteral:
   Enabled: false
 
-Documentation:
-  Enabled: false
-
 Style/DateTime:
   Enabled: false
 
 Lint/ShadowedException:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Lint/UriEscapeUnescape:
   Enabled: false

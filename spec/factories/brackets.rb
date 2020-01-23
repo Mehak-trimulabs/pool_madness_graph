@@ -4,9 +4,9 @@ FactoryBot.define do
   factory :bracket do
     user
     pool
-    tie_breaker { Faker::Number.between(100, 200) }
+    tie_breaker { Faker::Number.between(from: 100, to: 200) }
     tree_decisions { 0 }
-    tree_mask  { 0b1111111111111111111111111111111111111111111111111111111111111110 }
+    tree_mask { 0b1111111111111111111111111111111111111111111111111111111111111110 }
 
     trait :completed do
       after(:build) do |bracket|
