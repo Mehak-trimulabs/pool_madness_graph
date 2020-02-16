@@ -28,14 +28,9 @@ if Rails.env.development? || Rails.env.test?
   RuboCop::RakeTask.new
 
   # GraphQL
-  desc "Generate graphql schema json"
-  task graph: :environment do
-    puts "\nGenerating graphql schema json"
-    schema_data = GraphqlSchema.execute(GraphQL::Introspection::INTROSPECTION_QUERY)
-    pretty_json = JSON.pretty_generate(schema_data)
-    File.open("schema.json", "w") { |f| f.write(pretty_json) }
-    puts "Finished generating graphql schema json\n"
-  end
+  require "graphql/rake_task"
+  GraphQL::RakeTask.new(schema_name: "GraphqlSchema")
+  task schema: ["graphql:schema:dump"]
 
-  task(:default).clear.enhance(%w[rubocop graph spec])
+  task(:default).clear.enhance(%w[rubocop spec])
 end
