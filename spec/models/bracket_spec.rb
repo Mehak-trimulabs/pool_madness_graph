@@ -202,7 +202,7 @@ RSpec.describe Bracket, type: :model do
 
   describe "#tree / #picks" do
     let(:tree) { subject.tree }
-    let(:picks) { subject. picks }
+    let(:picks) { subject.picks }
 
     it "is a tournament tree" do
       expect(tree).to be_a(TournamentTree)
